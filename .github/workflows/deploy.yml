@@ -62,20 +62,6 @@ jobs:
           source: "ecosystem.config.js"
           target: "/var/www/one-daily-blog"
 
-      - name: Set environment variables on server
-        uses: appleboy/ssh-action@v0.1.6
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            echo "export OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> ~/.bashrc
-            echo "export PGHOST=${{ secrets.PGHOST }}" >> ~/.bashrc
-            echo "export PGDATABASE=${{ secrets.PGDATABASE }}" >> ~/.bashrc
-            echo "export PGUSER=${{ secrets.PGUSER }}" >> ~/.bashrc
-            echo "export PGPASSWORD=${{ secrets.PGPASSWORD }}" >> ~/.bashrc
-            source ~/.bashrc
-
       - name: Deploy and restart using PM2
         uses: appleboy/ssh-action@v0.1.6
         with:

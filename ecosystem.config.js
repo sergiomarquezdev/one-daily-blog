@@ -8,7 +8,7 @@ module.exports = {
       watch: false,
       env: {
         NODE_ENV: "production",
-        OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+        OPENAI_API_KEY_BLOG: process.env.OPENAI_API_KEY_BLOG,
         PGHOST: process.env.PGHOST,
         PGDATABASE: process.env.PGDATABASE,
         PGUSER: process.env.PGUSER,
