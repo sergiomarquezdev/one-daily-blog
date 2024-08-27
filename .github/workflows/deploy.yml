@@ -18,11 +18,25 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Set environment variables for build
+        run: |
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
+          echo "PGHOST=${{ secrets.PGHOST }}" >> $GITHUB_ENV
+          echo "PGDATABASE=${{ secrets.PGDATABASE }}" >> $GITHUB_ENV
+          echo "PGUSER=${{ secrets.PGUSER }}" >> $GITHUB_ENV
+          echo "PGPASSWORD=${{ secrets.PGPASSWORD }}" >> $GITHUB_ENV
+
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
       - name: Build Angular app
         run: npm run build
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PGHOST: ${{ secrets.PGHOST }}
+          PGDATABASE: ${{ secrets.PGDATABASE }}
+          PGUSER: ${{ secrets.PGUSER }}
+          PGPASSWORD: ${{ secrets.PGPASSWORD }}
 
       - name: Clean target directory on server
         uses: appleboy/ssh-action@v0.1.6
