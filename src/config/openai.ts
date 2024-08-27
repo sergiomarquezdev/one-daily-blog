@@ -1,5 +1,5 @@
 import OpenAI from 'openai';
-import { environment } from '../environments/environment';
+import { environment } from '../app/environments/environment';
 
 const configuration = {
   apiKey: environment.openAiApiKeyBlog,
