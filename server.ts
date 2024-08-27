@@ -59,7 +59,7 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 4000;
+  const port = 4000;
 
   const server = app();
   server.listen(port, () => {

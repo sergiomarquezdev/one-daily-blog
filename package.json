@@ -1,16 +1,17 @@
 {
-  "name": "one-daily-blog",
+    "name": "one-daily-blog",
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
-      "watch": "ng build --watch",
+        "build-prod": "ng build --prod",
+        "watch": "ng build --watch",
         "test": "ng test",
-      "lint": "ng lint",
-      "e2e": "ng e2e",
-      "start:ssr": "bun run build && node dist/one-daily-blog/server/server.mjs",
-      "serve:ssr": "node dist/one-daily-blog/server/server.mjs"
+        "lint": "ng lint",
+        "e2e": "ng e2e",
+        "start:ssr": "bun run build && node dist/one-daily-blog/server/server.mjs",
+        "serve:ssr": "node dist/one-daily-blog/server/server.mjs"
     },
     "private": true,
     "dependencies": {
