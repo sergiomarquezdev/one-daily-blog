@@ -27,7 +27,7 @@ One dAIly Blog es una aplicación de blog basada en Angular diseñada para la pu
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/sergiomarquezdev/one-dAIly-blog.git
+   git clone https://github.com/sergiomarquezdev/one-daily-blog.git
    cd one-daily-blog
    ```
 
