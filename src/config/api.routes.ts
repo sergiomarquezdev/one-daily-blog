@@ -121,26 +121,28 @@ router.post('/posts/generate', async (req, res) => {
       messages: [
         {
           role: 'system',
-          content: `Eres un asistente experto en tecnología, programación y creación de contenido para blogs, con un enfoque en generar artículos informativos, actualizados y en línea con las últimas tendencias en tecnología. Tu tarea es generar posts de blog que sean no solo informativos, sino también atractivos, fáciles de leer y orientados a una audiencia compuesta por programadores y entusiastas de la tecnología. Asegúrate de que el contenido siga las mejores prácticas de SEO, sea original, esté bien estructurado y dirigido a un público que busca aprender sobre las innovaciones más recientes en el campo. El resultado debe ser entregado en formato JSON, con los campos nombrados según el modelo de datos proporcionado. Aquí tienes un listado de los últimos 50 content_short para que no generes un post parecido a estos: ${recentContentShorts}`,
+          content: `Eres un asistente experto en tecnología, programación y creación de contenido técnico para blogs, con un enfoque en generar artículos detallados y educativos sobre temas de programación, tecnologías emergentes, y prácticas de desarrollo. Tu tarea es generar posts de blog que sean técnicos, informativos y profundos, con el objetivo de educar a una audiencia compuesta por programadores, desarrolladores y entusiastas de la tecnología. Asegúrate de que el contenido siga las mejores prácticas de SEO, sea original, esté bien estructurado, y explique conceptos técnicos de manera clara y precisa. El contenido debe ser útil para profesionales que buscan mejorar sus habilidades y mantenerse al día con las últimas innovaciones. El resultado debe ser entregado en formato JSON, con los campos nombrados según el modelo de datos proporcionado`,
         },
         {
           role: 'user',
           content: `Necesito que generes un post de blog completo en formato JSON que siga la siguiente estructura basada en mi entidad Post:
 
-                - **id**: (Generar como null, será autogenerado en la base de datos)
-                - **title**: Un título atractivo y optimizado para SEO que resuma el tema principal del post. Debe captar la atención del lector y ser relevante para las tendencias actuales en tecnología y programación.
-                - **content**: Un cuerpo del artículo de aproximadamente 500 a 1000 palabras, escrito en un tono profesional pero accesible. El contenido debe explicar detalladamente el tema, utilizando ejemplos cuando sea necesario, y debe mantener al lector comprometido a lo largo del texto. Es crucial que la información sea actual, precisa y útil para programadores de todos los niveles de experiencia. Además, el contenido debe ser original y no plagiar. Aparte, debes asegurarte de que el contenido sea de calidad y no sea un resumen de otras fuentes. Por favor, formatealo en formato HTML con una semántica adecuada y optimizada para SEO.
-                - **contentShort**: Una breve explicación concisa, de no más de 100 caracteres, que indique claramente de qué trata el post, diferenciándose del título pero proporcionando un resumen muy directo del contenido.
-                - **contentResume**: Un breve resumen de no más de 200 caracteres que resuma los puntos clave del post. Este resumen debe ser conciso, informativo y capaz de atraer al lector a profundizar en el contenido.
-                - **urlSlug**: Genera un slug URL único y amigable para SEO basado en el título del artículo. Este debe ser corto, descriptivo y relevante para el contenido del post.
-                - **createdAt**: (Generar como null, será autogenerado al insertar en la base de datos)
-                - **updatedAt**: (Generar como null, será autogenerado al insertar en la base de datos)
-                - **tags**: Una lista de 5 etiquetas relevantes para el tema del post. Estas etiquetas deben ayudar a clasificar el contenido en categorías específicas dentro del campo de la tecnología y programación.
-                - **isPublished**: (Fijar como false por defecto)
+                  - **id**: (Generar como null, será autogenerado en la base de datos)
+                  - **title**: Un título atractivo y optimizado para SEO que resuma el tema principal del post. Debe captar la atención del lector y ser relevante para las tendencias actuales en programación y desarrollo tecnológico.
+                  - **content**: Un cuerpo del artículo de aproximadamente 500 a 1000 palabras, escrito en un tono técnico y profesional. El contenido debe explicar detalladamente el tema, abordar conceptos clave de programación o tecnología, proporcionar ejemplos de código cuando sea necesario, y mantener al lector comprometido a lo largo del texto. Es crucial que la información sea actual, precisa, y de alta calidad, evitando ser un mero resumen de otras fuentes. El artículo debe ser original y no incurrir en plagio. Además, formatea el contenido en HTML con una semántica adecuada y optimizada para SEO.
+                  - **contentShort**: Una breve explicación concisa, de no más de 100 caracteres, que indique claramente de qué trata el post, diferenciándose del título pero proporcionando un resumen muy directo del contenido.
+                  - **contentResume**: Un breve resumen de no más de 200 caracteres que resuma los puntos clave del post. Este resumen debe ser conciso, informativo y capaz de atraer al lector a profundizar en el contenido.
+                  - **urlSlug**: Genera un slug URL único y amigable para SEO basado en el título del artículo. Este debe ser corto, descriptivo y relevante para el contenido del post.
+                  - **createdAt**: (Generar como null, será autogenerado al insertar en la base de datos)
+                  - **updatedAt**: (Generar como null, será autogenerado al insertar en la base de datos)
+                  - **tags**: Una lista de 5 etiquetas relevantes para el tema del post. Estas etiquetas deben ayudar a clasificar el contenido en categorías específicas dentro del campo de la programación y la tecnología.
+                  - **isPublished**: (Fijar como false por defecto)
 
-                Asegúrate de que el contenido sea completamente original y pase las verificaciones de plagio. También, el estilo debe ser coherente y alineado con el tono profesional que buscan los lectores del blog. El post debe estar optimizado para SEO sin sacrificar la calidad de la información ni la legibilidad.
+                  Asegúrate de que el contenido sea completamente original, detallado y pase las verificaciones de plagio. El estilo debe ser técnico y alineado con el tono profesional que buscan los lectores del blog, evitando simplificaciones excesivas y enfocándose en aportar valor a programadores y desarrolladores. El post debe estar optimizado para SEO sin sacrificar la calidad de la información ni la legibilidad.
 
-                Por favor, solamente devuelve el JSON bien formado, no incluyas nada más.`,
+                  Por favor, solamente devuelve el JSON bien formado, no incluyas nada más.
+
+                  Aquí tienes un listado de los últimos 50 content_short para que no generes un post parecido a estos: ${recentContentShorts}`,
         },
       ],
     });
