@@ -18,27 +18,10 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Create environment.prod.ts
-        run: |
-          echo "export const environment = {" > src/environments/environment.prod.ts
-          echo "  production: true," >> src/environments/environment.prod.ts
-          echo "  openAiApiKeyBlog: '${{ secrets.OPENAI_API_KEY_BLOG }}'," >> src/environments/environment.prod.ts
-          echo "  pgHost: '${{ secrets.PGHOST }}'," >> src/environments/environment.prod.ts
-          echo "  pgDatabase: '${{ secrets.PGDATABASE }}'," >> src/environments/environment.prod.ts
-          echo "  pgUser: '${{ secrets.PGUSER }}'," >> src/environments/environment.prod.ts
-          echo "  pgPassword: '${{ secrets.PGPASSWORD }}'," >> src/environments/environment.prod.ts
-          echo "};" >> src/environments/environment.prod.ts
-
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
       - name: Build Angular app
-        env:
-          OPENAI_API_KEY_BLOG: ${{ secrets.OPENAI_API_KEY_BLOG }}
-          PGHOST: ${{ secrets.PGHOST }}
-          PGDATABASE: ${{ secrets.PGDATABASE }}
-          PGUSER: ${{ secrets.PGUSER }}
-          PGPASSWORD: ${{ secrets.PGPASSWORD }}
         run: npm run build-prod
 
       - name: Clean target directory on server
