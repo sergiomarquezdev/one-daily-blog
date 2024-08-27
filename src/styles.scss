@@ -1,0 +1,44 @@
+// Custom Theming for Angular Material
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$onedaily-blog-theme: mat.define-theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      density: (
+        scale: 0,
+      ),
+    )
+);
+
+:root {
+  @include mat.all-component-themes($onedaily-blog-theme);
+}
+
+// Tailwind CSS and Global Styles
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Global Typography
+body {
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, Roboto, Oxygen,
+  Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+h1 {
+  font-family: "Mohave", sans-serif;
+  @apply text-4xl md:text-5xl;
+}
+
+h2 {
+  font-family: "Mohave", sans-serif;
+  @apply text-3xl md:text-4xl;
+}

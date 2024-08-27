@@ -1,0 +1,24 @@
+.header-container {
+  @apply shadow-md bg-gradient-to-r from-blue-500 to-indigo-600;
+}
+
+.container {
+  @apply mx-auto flex justify-between items-center p-4;
+}
+
+.mat-toolbar {
+  @apply bg-transparent;
+}
+
+.mat-button {
+  @apply text-white hover:text-gray-300;
+  font-weight: 600;
+}
+
+.mat-menu-panel {
+  @apply bg-white dark:bg-gray-800;
+}
+
+.mat-menu-item {
+  @apply text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700;
+}

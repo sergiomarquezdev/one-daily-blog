@@ -1,0 +1,47 @@
+<div class="container mx-auto p-4">
+  <h1 class="text-4xl font-bold mb-8 text-center text-gray-800">One d<strong>AI</strong>ly Blog</h1>
+
+  <!-- Mensaje de carga -->
+  <div *ngIf="isLoading" class="text-center text-gray-500">
+    <mat-spinner diameter="50" class="mx-auto"></mat-spinner>
+    <p class="mt-4">Cargando blogs...</p>
+  </div>
+
+  <!-- Listado de posts -->
+  <div *ngIf="!isLoading && posts.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <a *ngFor="let post of posts" [attr.aria-label]="'Leer más sobre ' + post.title"
+      [routerLink]="['/post', post.urlSlug]" class="post-link">
+      <mat-card class="post-container cursor-pointer h-full flex flex-col">
+        <mat-card-header>
+          <mat-card-title class="text-xl font-semibold text-gray-800 line-clamp-3">{{ post.title }}
+          </mat-card-title>
+          <mat-card-subtitle class="text-gray-500">{{ post.createdAt | date:'mediumDate' }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="flex-grow">
+          <p class="text-gray-700 text-base line-clamp-3 mb-4">{{ post.contentResume }}</p>
+        </mat-card-content>
+        <mat-card-footer>
+          <div class="flex items-center justify-between px-4 py-2">
+            <span class="text-sm text-gray-600">Por {{ post.author }}</span>
+            <div class="flex items-center gap-2 text-blue-500 font-semibold hover:text-blue-700 transition-all">
+              <span>Leer más</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+        </mat-card-footer>
+      </mat-card>
+    </a>
+  </div>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="loadError" class="text-center text-red-500">
+    <p>Ocurrió un error al cargar los blogs. Por favor, inténtelo de nuevo más tarde.</p>
+    <button mat-raised-button color="primary" (click)="loadPosts()" class="mt-4">Intentar de nuevo</button>
+  </div>
+
+  <!-- Mensaje de no hay posts -->
+  <div *ngIf="!isLoading && posts.length === 0 && !loadError" class="text-center text-gray-500">
+    <p>No hay blogs disponibles en este momento.</p>
+  </div>
+</div>
