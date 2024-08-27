@@ -1,11 +1,16 @@
 import {Pool} from 'pg';
-import environment from '../environments/environment';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+let {PGHOST, PGDATABASE, PGUSER, PGPASSWORD} = process.env;
+PGPASSWORD = decodeURIComponent(PGPASSWORD || '');
 
 export const pool = new Pool({
-  host: environment.PGHOST || '',
-  database: environment.PGDATABASE || '',
-  user: environment.PGUSER || '',
-  password: environment.PGPASSWORD,
+  host: PGHOST || '',
+  database: PGDATABASE || '',
+  user: PGUSER || '',
+  password: PGPASSWORD,
   port: 5432,
   ssl: {rejectUnauthorized: true},
 });

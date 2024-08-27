@@ -1,8 +1,10 @@
 import OpenAI from 'openai';
-import { environment } from '../app/environments/environment';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const configuration = {
-  apiKey: environment.openAiApiKeyBlog,
+  apiKey: process.env['OPENAI_API_KEY_BLOG'],
 };
 
 export const openai = new OpenAI(configuration);
