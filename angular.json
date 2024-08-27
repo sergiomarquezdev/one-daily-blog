@@ -18,7 +18,7 @@
                     "builder": "@angular-devkit/build-angular:application",
                     "options": {
                         "outputPath": "dist/one-daily-blog",
-                        "index": "src/index1.html",
+                        "index": "src/index.html",
                         "browser": "src/main.ts",
                         "polyfills": [
                             "zone.js"
@@ -34,21 +34,7 @@
                         "styles": [
                             "src/styles.scss"
                         ],
-                        "scripts": [],
-                        "server": "src/main.server.ts",
-                        "prerender": false,
-                        "ssr": {
-                            "entry": "server.ts"
-                        },
-                        "allowedCommonJsDependencies": [
-                            "pg",
-                            "dotenv",
-                            "morgan",
-                            "node-domexception",
-                            "agentkeepalive",
-                            "whatwg-url",
-                            "encoding"
-                        ]
+                        "scripts": []
                     },
                     "configurations": {
                         "production": {

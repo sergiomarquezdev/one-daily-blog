@@ -53,22 +53,11 @@ jobs:
           source: "dist/one-daily-blog/*"
           target: "/var/www/one-daily-blog"
 
-      - name: Deploy ecosystem.config.js
-        uses: appleboy/scp-action@v0.1.6
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          source: "ecosystem.config.js"
-          target: "/var/www/one-daily-blog"
-
-      - name: Deploy and restart using PM2
+      - name: Restart Nginx
         uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd /var/www/one-daily-blog
-            pm2 startOrRestart ecosystem.config.js --env production --update-env
             sudo systemctl restart nginx

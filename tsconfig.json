@@ -2,7 +2,6 @@
   "compileOnSave": false,
   "compilerOptions": {
     "target": "ES2022",
-    // Compatible con las versiones modernas de JavaScript
     "module": "ES2022",
     "lib": [
       "ES2022",
@@ -13,46 +12,26 @@
     "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
-    // Optimizado para modern bundlers
     "importHelpers": true,
-    // Minimiza el código duplicado con tslib
     "esModuleInterop": true,
-    // Para interoperabilidad con módulos CommonJS
     "skipLibCheck": true,
-    // Reduce el tiempo de compilación al omitir la verificación de tipos en los archivos de definición
     "isolatedModules": true,
-    // Requerido para la compilación independiente en módulos
     "noImplicitAny": true,
-    // Evita la inferencia implícita de `any`
     "strict": true,
-    // Activa todas las verificaciones estrictas
     "noImplicitOverride": true,
-    // Requiere `override` al sobrescribir métodos
     "noPropertyAccessFromIndexSignature": true,
-    // Previene el acceso a propiedades no definidas en las firmas de índice
     "noImplicitReturns": true,
-    // Asegura que todas las funciones devuelvan un valor o throw en cada rama de su ejecución
     "noFallthroughCasesInSwitch": true,
-    // Asegura que no haya errores accidentales en las declaraciones switch
     "forceConsistentCasingInFileNames": true,
-    // Asegura el uso consistente de mayúsculas/minúsculas en las importaciones
     "allowSyntheticDefaultImports": true,
-    // Facilita la interoperabilidad con módulos CommonJS
     "resolveJsonModule": true,
-    // Permite la importación de archivos JSON
     "allowJs": true,
-    // Permite la importación y compilación de archivos JavaScript
     "checkJs": false
-    // Deshabilita la verificación de tipos en archivos JavaScript
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
-    // Desactiva el uso del formato de ID de mensajes i18n heredado
     "strictInjectionParameters": true,
-    // Asegura que los parámetros de inyección estén correctamente tipados
     "strictInputAccessModifiers": true,
-    // Exige el uso de modificadores de acceso en los inputs de Angular
     "strictTemplates": true
-    // Activa verificaciones estrictas en las plantillas de Angular
   }
 }

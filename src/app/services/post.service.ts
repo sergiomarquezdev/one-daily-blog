@@ -8,7 +8,7 @@ import { Post } from '../entities/Post';
   providedIn: 'root',
 })
 export class PostService {
-  private apiUrl = '/api/posts';
+  private apiUrl = 'http://localhost:4000/api/posts';
 
   constructor(private http: HttpClient) {}
 
