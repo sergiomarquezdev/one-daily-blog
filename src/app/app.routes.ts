@@ -3,7 +3,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { PostComponent } from './components/post/post.component';
 
 export const routes: Routes = [
-  { path: '', component: BlogComponent },
+  { path: '', component: BlogComponent, pathMatch: 'full' },
   { path: 'post/:urlSlug', component: PostComponent },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
