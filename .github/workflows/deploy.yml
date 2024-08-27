@@ -31,7 +31,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            rm -rf /var/www/one-daily-blog/*
+            sudo rm -rf /var/www/one-daily-blog/*
 
       - name: Deploy files via SSH
         uses: appleboy/scp-action@v0.1.6
