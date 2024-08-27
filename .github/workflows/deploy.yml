@@ -51,7 +51,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           source: "dist/one-daily-blog/*"
-          target: "/var/www/one-daily-blog/dist/one-daily-blog"
+          target: "/var/www/one-daily-blog"
 
       - name: Deploy ecosystem.config.js
         uses: appleboy/scp-action@v0.1.6
