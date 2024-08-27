@@ -3,7 +3,7 @@
 
 @include mat.core();
 
-$onedaily-blog-theme: mat.define-theme(
+$one-daily-blog-theme: mat.define-theme(
     (
       color: (
         theme-type: light,
@@ -17,7 +17,7 @@ $onedaily-blog-theme: mat.define-theme(
 );
 
 :root {
-  @include mat.all-component-themes($onedaily-blog-theme);
+  @include mat.all-component-themes($one-daily-blog-theme);
 }
 
 // Tailwind CSS and Global Styles

@@ -1,0 +1,76 @@
+name: Deploy Angular App to VPS
+
+on:
+  push:
+    branches:
+      - main  # Desplegar solo cuando se hace push en la rama main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Especifica la versión de Node.js según tu proyecto
+
+      - name: Install dependencies
+        run: bun install --legacy-peer-deps
+
+      - name: Build Angular app
+        run: bun run build
+
+      - name: Clean target directory on server
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            rm -rf /var/www/one-daily-blog/*
+
+      - name: Deploy files via SSH
+        uses: appleboy/scp-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "dist/one-daily-blog/*"
+          target: "/var/www/one-daily-blog"
+
+      - name: Deploy files via SSH
+        uses: appleboy/scp-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "dist/one-daily-blog/*"  #
+          target: "/var/www/one-daily-blog"
+
+      - name: Set environment variables on server
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            echo "export OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> ~/.bashrc
+            echo "export PGHOST=${{ secrets.PGHOST }}" >> ~/.bashrc
+            echo "export PGDATABASE=${{ secrets.PGDATABASE }}" >> ~/.bashrc
+            echo "export PGUSER=${{ secrets.PGUSER }}" >> ~/.bashrc
+            echo "export PGPASSWORD=${{ secrets.PGPASSWORD }}" >> ~/.bashrc
+            source ~/.bashrc
+
+      - name: Restart Nginx
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            sudo systemctl restart nginx
+            pm2 restart 0 --update-env
