@@ -1,8 +1,8 @@
-# OneDailyBlog
+# One dAIly Blog
 
-OneDailyBlog is an Angular-based blog application designed for daily content publishing.
+One dAIly Blog es una aplicación de blog basada en Angular diseñada para la publicación diaria de contenido.
 
-## Technologies
+## Tecnologías
 
 - Angular 18.2.0
 - Angular Material 18.2.0
@@ -10,79 +10,111 @@ OneDailyBlog is an Angular-based blog application designed for daily content pub
 - TailwindCSS 3.4.10
 - TypeScript 5.5.2
 
-## Prerequisites
+## Características
 
-- Node.js (v18.18.0 or later recommended)
-- Bun (for running scripts)
+- Publicación diaria de contenido generado por IA
+- Interfaz de usuario moderna y responsiva
+- Integración con redes sociales
+- Renderizado del lado del servidor (SSR) para mejor rendimiento y SEO
 
-## Installation
+## Prerrequisitos
 
-1. Clone the repository:
+- Node.js (v18.18.0 o posterior recomendado)
+- Bun (para ejecutar scripts)
+
+## Instalación
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/sergiomarquezdev/one-dAIly-blog.git
+   cd one-daily-blog
    ```
-   git clone https://github.com/your-username/onedaily-blog.git
-   cd onedaily-blog
-   ```
 
-2. Install dependencies:
-   ```
+2. Instala las dependencias:
+   ```bash
    bun install
    ```
 
-## Development
+## Desarrollo
 
-To start the development server:
+Para iniciar el servidor de desarrollo:
 
-```
+```bash
 bun run start
 ```
 
-Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
 
-## Building
+## Construcción
 
-To build the project:
+Para construir el proyecto:
 
-```
+```bash
 bun run build
 ```
 
-The build artifacts will be stored in the `dist/` directory.
+Los artefactos de construcción se almacenarán en el directorio `dist/`.
 
-## Server-Side Rendering (SSR)
+## Renderizado del Lado del Servidor (SSR)
 
-To build and run the application with SSR:
+Para construir y ejecutar la aplicación con SSR:
 
-```
+```bash
 bun run start:ssr
 ```
 
-This command builds the application and starts the SSR server.
+Este comando construye la aplicación e inicia el servidor SSR.
 
-## Testing
+## Pruebas
 
-Run unit tests with:
+Ejecuta las pruebas unitarias con:
 
-```
+```bash
 ng test
 ```
 
-## Additional Commands
+## Comandos Adicionales
 
-- `ng generate component component-name`: Generate a new component
-- `ng generate directive|pipe|service|class|guard|interface|enum|module`: Generate other Angular artifacts
+- `ng generate component component-name`: Genera un nuevo componente
+- `ng generate directive|pipe|service|class|guard|interface|enum|module`: Genera otros artefactos de Angular
 
-## Contributing
+## Estructura del Proyecto
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+- **src/**: Contiene el código fuente de la aplicación.
+  - **app/**: Contiene los componentes, servicios y módulos de la aplicación.
+  - **assets/**: Contiene los recursos estáticos como imágenes y estilos.
+  - **environments/**: Contiene los archivos de configuración de entornos.
+- **public/**: Contiene los archivos públicos que se servirán directamente.
+- **dist/**: Contiene los artefactos de construcción.
+- **server.ts**: Configuración del servidor Express para SSR.
 
-## License
+## Configuración
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+### Tailwind CSS
 
-## Acknowledgments
+La configuración de Tailwind CSS se encuentra en `tailwind.config.js`.
+
+### Angular
+
+La configuración de Angular se encuentra en `angular.json`.
+
+### TypeScript
+
+La configuración de TypeScript se encuentra en `tsconfig.json`.
+
+### Servidor
+
+La configuración del servidor Express se encuentra en `server.ts`.
+
+## Contacto
+
+Para preguntas o sugerencias, por favor contacta a Sergio Márquez en [sergiomarquezdev@gmail.com](mailto:sergiomarquezdev@gmail.com).
+
+## Agradecimientos
 
 - Angular CLI
 - Angular Material
-- TailwindCSS community
+- Comunidad de TailwindCSS
 
-For more information on Angular CLI, please check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Para más información sobre Angular CLI, por favor visita la página [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli).
