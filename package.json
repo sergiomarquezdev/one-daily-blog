@@ -2,15 +2,13 @@
     "name": "onedaily-blog",
     "version": "0.0.0",
     "scripts": {
+        "ng": "ng",
+        "start": "ng serve",
         "build": "ng build",
-        "build:ssr": "ng build --configuration production && ng run onedaily-blog:server:production",
-        "serve:ssr": "ng serve --configuration development --port 4200",
-        "start": "ng serve -o",
-        "start:ssr": "bun run build && node dist/onedaily-blog/server/server.mjs",
-        "lint": "ng lint",
+        "watch": "ng build --watch --configuration development",
         "test": "ng test",
-        "e2e": "ng e2e",
-        "vercel-build": "npm run build:ssr"
+        "start:ssr": "bun run build && node dist/onedaily-blog/server/server.mjs",
+        "serve:ssr": "node dist/onedaily-blog/server/server.mjs"
     },
     "private": true,
     "dependencies": {

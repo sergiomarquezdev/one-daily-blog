@@ -1,9 +1,9 @@
-import {APP_BASE_HREF} from '@angular/common';
-import {CommonEngine} from '@angular/ssr';
+import { APP_BASE_HREF } from '@angular/common';
+import { CommonEngine } from '@angular/ssr';
 import express from 'express';
-import {fileURLToPath} from 'node:url';
-import {dirname, join, resolve} from 'node:path';
-import  morgan from 'morgan';
+import { fileURLToPath } from 'node:url';
+import { dirname, join, resolve } from 'node:path';
+import morgan from 'morgan';
 import bootstrap from './src/main.server';
 import apiRouter from './src/config/api.routes';
 
@@ -67,4 +67,4 @@ function run(): void {
   });
 }
 
-run();
+//run();
