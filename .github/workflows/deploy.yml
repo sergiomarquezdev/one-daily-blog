@@ -70,5 +70,5 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             cd /var/www/one-daily-blog
-            pm2 startOrRestart ecosystem.config.js --env production
+            pm2 startOrRestart ecosystem.config.js --env production --update-env
             sudo systemctl restart nginx
