@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
@@ -32,6 +32,17 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             sudo rm -rf /var/www/one-daily-blog/*
+
+      - name: Ensure correct permissions on target directory
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            sudo mkdir -p /var/www/one-daily-blog
+            sudo chown -R ${{ secrets.VPS_USER }}:$USER /var/www/one-daily-blog
+            sudo chmod -R 775 /var/www/one-daily-blog
 
       - name: Deploy files via SSH
         uses: appleboy/scp-action@v0.1.6
@@ -64,4 +75,4 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             sudo systemctl restart nginx
-            pm2 restart 0 --update-env
+            pm2 restart one-daily-blog --update-env
