@@ -16,6 +16,7 @@
 
 .footer-link {
   @apply flex items-center gap-2 hover:text-blue-400 transition-colors duration-300;
+  cursor: pointer;
 }
 
 .grid-center {

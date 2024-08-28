@@ -24,7 +24,7 @@
             <h2 id="random-posts" class="footer-heading">Posts Anteriores</h2>
             <ul class="space-y-2">
               <li *ngFor="let post of posts">
-                <a (click)="navigateToPost(post.urlSlug)" [attr.aria-label]="'Leer más sobre ' + post.title"
+                <a [routerLink]="['/post', post.urlSlug]" [attr.aria-label]="'Leer más sobre ' + post.title"
                   class="footer-link">
                   {{ post.title }}
                 </a>
