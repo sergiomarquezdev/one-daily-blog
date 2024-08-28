@@ -14,8 +14,7 @@
       [routerLink]="['/post', post.urlSlug]" class="post-link">
       <mat-card class="post-container cursor-pointer h-full flex flex-col">
         <mat-card-header>
-          <mat-card-title class="text-xl font-semibold text-gray-800 line-clamp-3">{{ post.title }}
-          </mat-card-title>
+          <mat-card-title class="text-xl font-semibold text-gray-800 line-clamp-3">{{ post.title }}</mat-card-title>
           <mat-card-subtitle class="text-gray-500">{{ post.createdAt | date:'mediumDate' }}
           </mat-card-subtitle>
         </mat-card-header>

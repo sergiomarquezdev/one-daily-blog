@@ -11,8 +11,7 @@
 }
 
 .mat-button {
-  @apply text-white hover:text-gray-300;
-  font-weight: 600;
+  @apply text-white hover:text-gray-300 font-semibold;
 }
 
 .mat-menu-panel {

@@ -1,12 +1,12 @@
 .footer-container {
-  @apply bg-gradient-to-r from-gray-800 to-gray-900 text-gray-300;
+  @apply bg-gradient-to-r from-gray-800 to-gray-900 text-gray-300 flex justify-center px-8;
   display: flex;
   justify-content: center;
   padding: 0 2rem; // Añade padding a los lados
 }
 
 .footer-content {
-  max-width: 1200px; // Ancho máximo del contenido
+  @apply max-w-6xl w-full;
   width: 100%;
 }
 
@@ -19,10 +19,9 @@
 }
 
 .grid-center {
-  display: flex;
-  justify-content: center;
+  @apply flex justify-center;
 }
 
 .justify-left {
-  text-align: left;
+  @apply text-left;
 }

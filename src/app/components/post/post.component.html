@@ -8,7 +8,7 @@
       <div class="post-content text-gray-800 leading-relaxed mb-6" [innerHTML]="post.content"></div>
       <div class="post-tags mt-6">
         <mat-chip-list aria-label="Etiquetas del post">
-          <mat-chip *ngFor="let tag of post.postTags">{{ tag }}</mat-chip>
+          <mat-chip *ngFor="let tag of post.postTags" class="mat-chip">{{ tag }}</mat-chip>
         </mat-chip-list>
       </div>
     </mat-card-content>
