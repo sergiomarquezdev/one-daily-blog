@@ -1,4 +1,4 @@
-<div class="container max-w-6xl mx-auto p-4 pb-8">
+<div class="container">
   <h1 class="text-4xl font-bold mb-4 text-center text-gray-800">One d<strong>AI</strong>ly Blog</h1>
   <p class="text-lg font-bold mb-8 text-center text-gray-800">Un blog totalmente autónomo gracias a la IA</p>
 
@@ -12,17 +12,16 @@
   <div *ngIf="!isLoading && posts.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     <a *ngFor="let post of posts" [attr.aria-label]="'Leer más sobre ' + post.title"
       [routerLink]="['/post', post.urlSlug]" class="post-link">
-      <mat-card class="post-container cursor-pointer h-full flex flex-col">
+      <mat-card class="post-container">
         <mat-card-header>
-          <mat-card-title class="text-xl font-semibold text-gray-800 line-clamp-3">{{ post.title }}</mat-card-title>
-          <mat-card-subtitle class="text-gray-500">{{ post.createdAt | date:'mediumDate' }}
-          </mat-card-subtitle>
+          <mat-card-title>{{ post.title }}</mat-card-title>
+          <mat-card-subtitle>{{ post.createdAt | date:'mediumDate' }}</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content class="flex-grow">
-          <p class="text-gray-700 text-base line-clamp-3 mb-4">{{ post.contentResume }}</p>
+        <mat-card-content>
+          <p>{{ post.contentResume }}</p>
         </mat-card-content>
         <mat-card-footer>
-          <div class="flex items-center justify-between px-4 py-2">
+          <div class="flex items-center justify-between">
             <span class="text-sm text-gray-600">Por {{ post.author }}</span>
             <div class="flex items-center gap-2 text-blue-500 font-semibold hover:text-blue-700 transition-all">
               <span>Leer más</span>

@@ -1,42 +1,42 @@
-<footer class="footer-container">
-  <div class="footer-content">
-    <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Sección de Redes Sociales -->
-        <nav aria-label="Enlaces de Redes Sociales" class="grid-center">
-          <div class="justify-left">
-            <h2 class="footer-heading">Redes Sociales</h2>
-            <ul class="space-y-2">
-              <li *ngFor="let social of socialLinks">
-                <a [href]="social.url" [attr.aria-label]="social.ariaLabel" class="footer-link"
-                  rel="noopener noreferrer" target="_blank">
-                  <i [class]="social.icon" class="w-6 text-xl"></i>
-                  <span>{{ social.name }}</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+<mat-toolbar class="footer-container" color="primary">
+  <div class="container">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Sección de Redes Sociales -->
+      <nav aria-label="Enlaces de Redes Sociales" class="grid-center">
+        <div class="justify-left">
+          <h2 class="footer-heading">Redes Sociales</h2>
+          <mat-list>
+            <mat-list-item *ngFor="let social of socialLinks">
+              <a [href]="social.url" [attr.aria-label]="social.ariaLabel" class="footer-link" rel="noopener noreferrer"
+                target="_blank">
+                <i [class]="social.icon"></i>
+                <span>{{ social.name }}</span>
+              </a>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </nav>
 
-        <!-- Sección de Publicaciones Aleatorias -->
-        <section aria-labelledby="random-posts" class="grid-start">
-          <div class="justify-left">
-            <h2 id="random-posts" class="footer-heading">Posts Anteriores</h2>
-            <ul class="space-y-2">
-              <li *ngFor="let post of posts">
-                <a (click)="navigateToPost(post.urlSlug)" [attr.aria-label]="'Leer más sobre ' + post.title"
-                  class="footer-link">
-                  {{ post.title }}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </div>
+      <!-- Sección de Publicaciones Aleatorias -->
+      <section aria-labelledby="random-posts" class="grid-start">
+        <div class="justify-left">
+          <h2 id="random-posts" class="footer-heading">Posts Anteriores</h2>
+          <mat-list>
+            <mat-list-item *ngFor="let post of posts">
+              <a (click)="navigateToPost(post.urlSlug)" [attr.aria-label]="'Leer más sobre ' + post.title"
+                class="footer-link">
+                {{ post.title }}
+              </a>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </section>
+    </div>
 
-      <div class="mt-8 text-center">
-        <p class="text-xs text-gray-400">&copy; {{ currentYear }} Sergio Márquez</p>
-      </div>
+    <mat-divider class="my-8"></mat-divider>
+
+    <div class="text-center">
+      <p class="text-xs text-gray-400">&copy; {{ currentYear }} Sergio Márquez</p>
     </div>
   </div>
-</footer>
+</mat-toolbar>

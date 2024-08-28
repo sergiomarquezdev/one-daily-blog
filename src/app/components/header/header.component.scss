@@ -6,6 +6,10 @@
   @apply mx-auto flex justify-between items-center p-4;
 }
 
+.logo {
+  @apply h-12 md:h-16;
+}
+
 .mat-toolbar {
   @apply bg-transparent;
 }
