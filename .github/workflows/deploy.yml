@@ -43,7 +43,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           source: "dist/one-daily-blog/*"
-          target: "/var/www/one-daily-blog"
+          target: "/var/www/one-daily-blog/"
 
       - name: Restart Nginx
         uses: appleboy/ssh-action@v1.0.3
