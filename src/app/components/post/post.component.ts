@@ -21,18 +21,21 @@ export class PostComponent implements OnInit {
   post: Post | null = null;
   isLoading: boolean = true;
   loadError: boolean = false;
+  urlSlug: string = '';
 
   constructor(private route: ActivatedRoute, private postService: PostService) {}
 
   ngOnInit(): void {
-    this.loadPost();
+    this.route.paramMap.subscribe((params) => {
+      this.urlSlug = params.get('urlSlug') || '';
+      this.loadPost();
+    });
   }
 
   loadPost(): void {
     this.isLoading = true;
     this.loadError = false;
-    const urlSlug = this.route.snapshot.paramMap.get('urlSlug') || '';
-    this.postService.fetchPostBySlug(urlSlug).subscribe({
+    this.postService.fetchPostBySlug(this.urlSlug).subscribe({
       next: (data: Post) => {
         this.post = data;
         this.isLoading = false;
