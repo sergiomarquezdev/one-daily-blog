@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { Post } from '../../entities/Post';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatListModule } from '@angular/material/list';
-import { MatDividerModule } from '@angular/material/divider';
 
 interface SocialLink {
   name: string;
@@ -17,7 +14,7 @@ interface SocialLink {
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatListModule, MatDividerModule],
+  imports: [CommonModule],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
 })
