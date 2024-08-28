@@ -5,7 +5,6 @@
         <small>{{ post.createdAt | date:'longDate' }}</small>
         <small>Por {{ post.author }}</small>
       </div>
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 text-center p-4 py-8">{{ post.title }}</h1>
       <div class="post-content text-gray-800 leading-relaxed mb-6" [innerHTML]="post.content"></div>
       <div class="post-tags mt-6">
         <mat-chip-list aria-label="Etiquetas del post">
