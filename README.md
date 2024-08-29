@@ -73,7 +73,6 @@ ng test
 - **src/**: Contiene el código fuente de la aplicación.
   - **app/**: Contiene los componentes, servicios y módulos de la aplicación.
   - **assets/**: Contiene los recursos estáticos como imágenes y estilos.
-  - **environments/**: Contiene los archivos de configuración de entornos.
 - **public/**: Contiene los archivos públicos que se servirán directamente.
 - **dist/**: Contiene los artefactos de construcción.
 
