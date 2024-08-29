@@ -1,24 +1,17 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "target": "es2020",
-    "module": "esnext",
+    "target": "ES2022",
+    "module": "ES2022",
     "lib": [
       "ES2022",
       "dom"
     ],
-    "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "*",
-        "dist/*"
-      ]
-    },
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -40,8 +33,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  },
-  "include": [
-    "src/**/*"
-  ]
+  }
 }
