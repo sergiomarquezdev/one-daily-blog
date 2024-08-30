@@ -86,6 +86,6 @@ export class PostService {
   }
 
   getTotalPosts(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/posts/total`);
+    return this.http.get(`${this.apiUrl}/total`);
   }
 }
