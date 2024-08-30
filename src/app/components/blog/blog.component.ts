@@ -59,6 +59,15 @@ export class BlogComponent implements OnInit {
     });
   }
 
+  protected loadMorePostsOnScroll(event: any) {
+    const scrollPosition = event.target.scrollTop + event.target.offsetHeight;
+    const scrollHeight = event.target.scrollHeight;
+
+    if (scrollPosition >= scrollHeight * 0.8) {
+      this.loadMorePosts();
+    }
+  }
+
   protected getTotalPosts(): void {
     this.postService.getTotalPosts().subscribe({
       next: (data: any) => {
