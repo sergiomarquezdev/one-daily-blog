@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {CommonModule, registerLocaleData} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
@@ -21,7 +21,7 @@ registerLocaleData(localeEs, 'es-ES', localeEsExtra);
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss'],
 })
-export class BlogComponent implements OnInit {
+export class BlogComponent implements OnInit, AfterViewInit, OnDestroy {
   posts: Post[] = [];
   isLoading = true;
   loadError = false;
@@ -37,6 +37,14 @@ export class BlogComponent implements OnInit {
   ngOnInit(): void {
     this.loadPosts();
     this.getTotalPosts();
+  }
+
+  ngAfterViewInit() {
+    window.addEventListener('scroll', this.loadMorePostsOnScroll.bind(this));
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('scroll', this.loadMorePostsOnScroll.bind(this));
   }
 
   protected loadPosts(): void {
@@ -63,7 +71,7 @@ export class BlogComponent implements OnInit {
     const scrollPosition = window.scrollY + window.innerHeight;
     const documentHeight = document.body.offsetHeight;
 
-    if (scrollPosition >= documentHeight * 0.8) {
+    if (scrollPosition >= documentHeight - 100) {
       this.loadMorePosts();
     }
   }
