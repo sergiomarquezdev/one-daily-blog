@@ -47,14 +47,14 @@ export class PostComponent implements OnInit {
   }
 
   private loadAdjacentPosts(postId: number): void {
+    this.previousPost = null;
+    this.nextPost = null;
     this.postService.fetchPreviousPost(postId).subscribe({
-      next: (data: Post) => (this.previousPost = data),
-      error: (error: any) => console.error('Error al obtener el post anterior', error),
+      next: (data: Post) => (this.previousPost = data)
     });
 
     this.postService.fetchNextPost(postId).subscribe({
-      next: (data: Post) => (this.nextPost = data),
-      error: (error: any) => console.error('Error al obtener el post siguiente', error),
+      next: (data: Post) => (this.nextPost = data)
     });
   }
 
