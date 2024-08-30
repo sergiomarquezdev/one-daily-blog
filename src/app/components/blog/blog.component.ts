@@ -59,11 +59,11 @@ export class BlogComponent implements OnInit {
     });
   }
 
-  protected loadMorePostsOnScroll(event: any) {
-    const scrollPosition = event.target.scrollTop + event.target.offsetHeight;
-    const scrollHeight = event.target.scrollHeight;
+  protected loadMorePostsOnScroll() {
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const documentHeight = document.body.offsetHeight;
 
-    if (scrollPosition >= scrollHeight * 0.8) {
+    if (scrollPosition >= documentHeight * 0.8) {
       this.loadMorePosts();
     }
   }
