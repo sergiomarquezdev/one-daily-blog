@@ -1,23 +1,16 @@
+/* header.component.scss */
 .header-container {
-  @apply shadow-md bg-gradient-to-r from-blue-500 to-indigo-600;
+  @apply shadow-md bg-gradient-to-l from-gray-800 to-gray-900 min-h-[5rem];
 }
 
 .container {
-  @apply mx-auto flex justify-between items-center p-4;
-}
-
-.mat-toolbar {
-  @apply bg-transparent;
+  @apply mx-auto flex justify-between items-center p-4 max-w-6xl;
 }
 
 .mat-button {
-  @apply text-white hover:text-gray-300 font-semibold;
+  @apply text-white hover:text-gray-300 font-semibold p-0;
 }
 
-.mat-menu-panel {
-  @apply bg-white dark:bg-gray-800;
-}
-
-.mat-menu-item {
-  @apply text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700;
+.logo-img {
+  @apply h-16;
 }

@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
-import { PostService } from '../../services/post.service';
-import { Post } from '../../entities/Post';
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
+import {PostService} from '../../services/post.service';
+import {Post} from '../../entities/Post';
+import {SocialLink} from "../../entities/SocialLink";
 
-interface SocialLink {
-  name: string;
-  url: string;
-  icon: string;
-  ariaLabel: string;
-}
 
 @Component({
   selector: 'app-footer',
@@ -20,7 +15,7 @@ interface SocialLink {
 })
 export class FooterComponent implements OnInit {
   posts: Post[] = [];
-  currentYear: number = new Date().getFullYear();
+  currentYear = new Date().getFullYear();
   socialLinks: SocialLink[] = [
     {
       name: 'Email',
@@ -48,20 +43,25 @@ export class FooterComponent implements OnInit {
     },
   ];
 
-  constructor(private postService: PostService, private router: Router) {}
-
-  ngOnInit() {
-    this.getRandomPosts();
+  constructor(private postService: PostService) {
   }
 
-  getRandomPosts() {
+  ngOnInit(): void {
+    this.loadRandomPosts();
+  }
+
+  private loadRandomPosts(): void {
     this.postService.getRandomPosts().subscribe({
-      next: (data: Post[]) => {
-        this.posts = data;
-      },
-      error: (error) => {
-        console.error('Error al obtener los posts', error);
-      },
+      next: (data: Post[]) => this.handlePostsLoad(data),
+      error: (error) => this.handleError(error),
     });
+  }
+
+  private handlePostsLoad(data: Post[]): void {
+    this.posts = data;
+  }
+
+  private handleError(error: any): void {
+    console.error('Error al obtener los posts', error);
   }
 }

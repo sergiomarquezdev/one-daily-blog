@@ -19,9 +19,9 @@ import { Post } from '../../entities/Post';
 })
 export class PostComponent implements OnInit {
   post: Post | null = null;
-  isLoading: boolean = true;
-  loadError: boolean = false;
-  urlSlug: string = '';
+  isLoading = true;
+  loadError = false;
+  urlSlug = '';
 
   constructor(private route: ActivatedRoute, private postService: PostService) {}
 
@@ -32,19 +32,23 @@ export class PostComponent implements OnInit {
     });
   }
 
-  loadPost(): void {
+  protected loadPost(): void {
     this.isLoading = true;
     this.loadError = false;
     this.postService.fetchPostBySlug(this.urlSlug).subscribe({
-      next: (data: Post) => {
-        this.post = data;
-        this.isLoading = false;
-      },
-      error: (error) => {
-        console.error('Error al obtener el post', error);
-        this.loadError = true;
-        this.isLoading = false;
-      },
+      next: (data: Post) => this.handlePostLoad(data),
+      error: (error) => this.handleError(error),
     });
+  }
+
+  private handlePostLoad(data: Post): void {
+    this.post = data;
+    this.isLoading = false;
+  }
+
+  private handleError(error: any): void {
+    console.error('Error al obtener el post', error);
+    this.loadError = true;
+    this.isLoading = false;
   }
 }

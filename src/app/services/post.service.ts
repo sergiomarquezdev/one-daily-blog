@@ -1,19 +1,21 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Post } from '../entities/Post';
-import {environment} from "../../environments/environment";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {map, catchError} from 'rxjs/operators';
+import {Post} from '../entities/Post';
+import {DbPost} from "../entities/DbPost";
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostService {
-  private apiUrl = environment.apiUrl + '/posts';
+  private apiUrl = `${environment.apiUrl}/posts`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
-  private mapPost(dbPost: any): Post {
+  private mapPost(dbPost: DbPost): Post {
     return {
       id: dbPost.id,
       title: dbPost.title,
@@ -28,27 +30,48 @@ export class PostService {
     };
   }
 
+  private handleError(error: any): Observable<never> {
+    console.error('Ocurrió un error en la solicitud:', error);
+    return throwError(() => new Error('Ocurrió un error en la solicitud. Inténtalo de nuevo más tarde.'));
+  }
+
   // Obtiene la lista completa de posts
-  getPosts(limit = 10, offset = 0): Observable<Post[]> {
+  getPosts(limit: number = 10, offset: number = 0): Observable<Post[]> {
     return this.http
-      .get<any[]>(`${this.apiUrl}?limit=${limit}&offset=${offset}`)
-      .pipe(map((dbPosts) => dbPosts.map(this.mapPost)));
+      .get<DbPost[]>(`${this.apiUrl}?limit=${limit}&offset=${offset}`)
+      .pipe(
+        map((dbPosts) => dbPosts.map(this.mapPost)),
+        catchError(this.handleError)
+      );
   }
 
   // Obtiene posts aleatoriamente
   getRandomPosts(): Observable<Post[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/random?n=3`).pipe(map((dbPosts) => dbPosts.map(this.mapPost)));
+    return this.http
+      .get<DbPost[]>(`${this.apiUrl}/random?n=3`)
+      .pipe(
+        map((dbPosts) => dbPosts.map(this.mapPost)),
+        catchError(this.handleError)
+      );
   }
 
   // Obtiene un post específico por slug
   fetchPostBySlug(urlSlug: string): Observable<Post> {
-    return this.http.get<any>(`${this.apiUrl}/${urlSlug}`).pipe(map(this.mapPost));
+    return this.http
+      .get<DbPost>(`${this.apiUrl}/${urlSlug}`)
+      .pipe(
+        map(this.mapPost),
+        catchError(this.handleError)
+      );
   }
 
   // Busca posts por título
   searchPosts(query: string): Observable<Post[]> {
     return this.http
-      .get<any[]>(`${this.apiUrl}/search?query=${query}`)
-      .pipe(map((dbPosts) => dbPosts.map(this.mapPost)));
+      .get<DbPost[]>(`${this.apiUrl}/search?query=${query}`)
+      .pipe(
+        map((dbPosts) => dbPosts.map(this.mapPost)),
+        catchError(this.handleError)
+      );
   }
 }
