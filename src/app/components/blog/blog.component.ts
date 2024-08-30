@@ -28,7 +28,7 @@ export class BlogComponent implements OnInit {
   isLoadingMorePosts = false;
   allPostsLoaded = false;
   totalPosts = 0;
-  limit = 9;
+  limit = 12;
   offset = 0;
 
   constructor(private postService: PostService) {
