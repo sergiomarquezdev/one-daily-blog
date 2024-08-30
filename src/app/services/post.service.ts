@@ -58,19 +58,9 @@ export class PostService {
   // Obtiene un post específico por slug
   fetchPostBySlug(urlSlug: string): Observable<Post> {
     return this.http
-      .get<DbPost>(`${this.apiUrl}/${urlSlug}`)
+      .get<DbPost>(`${this.apiUrl}/slug/${urlSlug}`)
       .pipe(
         map(this.mapPost),
-        catchError(this.handleError)
-      );
-  }
-
-  // Busca posts por título
-  searchPosts(query: string): Observable<Post[]> {
-    return this.http
-      .get<DbPost[]>(`${this.apiUrl}/search?query=${query}`)
-      .pipe(
-        map((dbPosts) => dbPosts.map(this.mapPost)),
         catchError(this.handleError)
       );
   }
