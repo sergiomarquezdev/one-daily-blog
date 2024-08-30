@@ -35,7 +35,7 @@
   </div>
 
   <!-- Cargar más --->
-  <div *ngIf="!isLoading && !isLoadingMorePosts && posts.length > 0 && !loadError" class="text-center mt-8">
+  <div *ngIf="!isLoading && !isLoadingMorePosts && !allPostsLoaded && posts.length > 0 && !loadError" class="text-center mt-8">
     <button mat-raised-button color="primary" (click)="loadMorePosts()" class="mt-4">Cargar más</button>
   </div>
 

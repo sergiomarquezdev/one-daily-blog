@@ -26,6 +26,8 @@ export class BlogComponent implements OnInit {
   isLoading = true;
   loadError = false;
   isLoadingMorePosts = false;
+  allPostsLoaded = false;
+  totalPosts = 0;
   limit = 9;
   offset = 0;
 
@@ -34,23 +36,7 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPosts();
-  }
-
-  private handlePostsLoad(data: Post[]): void {
-    if (this.offset === 0) {
-      this.posts = data;
-    } else {
-      this.posts = [...this.posts, ...data];
-    }
-    this.isLoading = false;
-    this.isLoadingMorePosts = false;
-  }
-
-  private handleError(error: any): void {
-    console.error('Error al obtener los posts', error);
-    this.loadError = true;
-    this.isLoading = false;
-    this.isLoadingMorePosts = false;
+    this.getTotalPosts();
   }
 
   protected loadPosts(): void {
@@ -71,5 +57,36 @@ export class BlogComponent implements OnInit {
       next: (data: Post[]) => this.handlePostsLoad(data),
       error: (error) => this.handleError(error),
     });
+  }
+
+  protected getTotalPosts(): void {
+    this.postService.getTotalPosts().subscribe({
+      next: (data: any) => {
+        this.totalPosts = data.total_posts;
+      },
+      error: (error) => {
+        console.error('Error al obtener el total de posts:', error);
+      }
+    });
+  }
+
+  private handlePostsLoad(data: Post[]): void {
+    if (this.offset === 0) {
+      this.posts = data;
+    } else {
+      this.posts = [...this.posts, ...data];
+      if (this.posts.length >= this.totalPosts) {
+        this.allPostsLoaded = true;
+      }
+    }
+    this.isLoading = false;
+    this.isLoadingMorePosts = false;
+  }
+
+  private handleError(error: any): void {
+    console.error('Error al obtener los posts', error);
+    this.loadError = true;
+    this.isLoading = false;
+    this.isLoadingMorePosts = false;
   }
 }

@@ -84,4 +84,8 @@ export class PostService {
         catchError(this.handleError)
       );
   }
+
+  getTotalPosts(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/posts/total`);
+  }
 }

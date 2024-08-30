@@ -1,19 +1,18 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,ts,scss}"],
   theme: {
     extend: {
       colors: {
-        primary: "#3f51b5", // Color principal de Angular Material
-        secondary: "#ff4081", // Color secundario
-        background: "#f5f5f5", // Color de fondo
-        surface: "#ffffff", // Color de superficie
-        error: "#f44336", // Color de error
-        onPrimary: "#ffffff", // Color de texto sobre color primario
-        onSecondary: "#000000", // Color de texto sobre color secundario
-        onBackground: "#000000", // Color de texto sobre fondo
-        onSurface: "#000000", // Color de texto sobre superficie
-        onError: "#ffffff", // Color de texto sobre error
+        primary: "#1A1D23", // Azul profundo
+        secondary: "#FF9900", // Naranja vibrante
+        background: "#FFFFFF", // Gris claro
+        surface: "#FFFFFF", // Blanco
+        error: "#E91E63", // Rojo de error
+        onPrimary: "#FFFFFF", // Blanco sobre azul profundo
+        onSecondary: "#000000", // Negro sobre naranja vibrante
+        onBackground: "#000000", // Negro sobre gris claro
+        onSurface: "#000000", // Negro sobre blanco
+        onError: "#FFFFFF", // Blanco sobre rojo de error
       },
       fontFamily: {
         sans: ["Quicksand", "sans-serif"],
