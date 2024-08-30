@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {map, catchError} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import {Post} from '../entities/Post';
 import {DbPost} from "../entities/DbPost";
 import {environment} from '../../environments/environment';
@@ -71,6 +71,26 @@ export class PostService {
       .get<DbPost[]>(`${this.apiUrl}/search?query=${query}`)
       .pipe(
         map((dbPosts) => dbPosts.map(this.mapPost)),
+        catchError(this.handleError)
+      );
+  }
+
+  // Obtener el post anterior
+  fetchPreviousPost(postId: number): Observable<Post> {
+    return this.http
+      .get<DbPost>(`${this.apiUrl}/previous?postId=${postId}`)
+      .pipe(
+        map(this.mapPost),
+        catchError(this.handleError)
+      );
+  }
+
+  // Obtener el post siguiente
+  fetchNextPost(postId: number): Observable<Post> {
+    return this.http
+      .get<DbPost>(`${this.apiUrl}/next?postId=${postId}`)
+      .pipe(
+        map(this.mapPost),
         catchError(this.handleError)
       );
   }

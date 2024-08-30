@@ -18,6 +18,8 @@ import {Post} from '../../entities/Post';
 })
 export class PostComponent implements OnInit {
   post: Post | null = null;
+  previousPost: Post | null = null;
+  nextPost: Post | null = null;
   isLoading = true;
   loadError = false;
   urlSlug = '';
@@ -36,8 +38,23 @@ export class PostComponent implements OnInit {
     this.isLoading = true;
     this.loadError = false;
     this.postService.fetchPostBySlug(this.urlSlug).subscribe({
-      next: (data: Post) => this.handlePostLoad(data),
+      next: (data: Post) => {
+        this.handlePostLoad(data);
+        this.loadAdjacentPosts(data.id);
+      },
       error: (error) => this.handleError(error),
+    });
+  }
+
+  private loadAdjacentPosts(postId: number): void {
+    this.postService.fetchPreviousPost(postId).subscribe({
+      next: (data: Post) => (this.previousPost = data),
+      error: (error: any) => console.error('Error al obtener el post anterior', error),
+    });
+
+    this.postService.fetchNextPost(postId).subscribe({
+      next: (data: Post) => (this.nextPost = data),
+      error: (error: any) => console.error('Error al obtener el post siguiente', error),
     });
   }
 

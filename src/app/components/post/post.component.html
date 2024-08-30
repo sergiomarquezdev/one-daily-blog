@@ -1,7 +1,14 @@
 <div *ngIf="post" class="container mx-auto p-4 pb-8">
-  <button [routerLink]="['/']" class="mb-4" color="primary" mat-button>
-    <i class="fa-solid fa-arrow-left mr-2"></i> Volver atrás
-  </button>
+  <div class="flex justify-between mb-4">
+    <button *ngIf="previousPost" [attr.aria-label]="'Anterior: ' + previousPost.title" [routerLink]="['/post', previousPost.urlSlug]" [title]="previousPost.title" class="mb-4"
+            color="primary" mat-button>
+      <i class="fa-solid fa-chevron-left mr-2"></i> Anterior
+    </button>
+    <button *ngIf="nextPost" [attr.aria-label]="'Siguiente: ' + nextPost.title" [routerLink]="['/post', nextPost.urlSlug]" [title]="nextPost.title" class="mb-4"
+            color="primary" mat-button>
+      Siguiente <i class="fa-solid fa-chevron-right ml-2"></i>
+    </button>
+  </div>
   <mat-card class="post-container">
     <mat-card-content class="p-6">
       <div class="post-meta mb-4 text-gray-500 flex flex-col md:flex-row justify-between items-center md:items-start">
