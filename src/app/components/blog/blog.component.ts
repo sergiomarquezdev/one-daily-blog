@@ -1,4 +1,4 @@
-import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CommonModule, registerLocaleData} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
@@ -53,7 +53,7 @@ export class BlogComponent implements OnInit {
     this.isLoadingMorePosts = false;
   }
 
-  loadPosts(): void {
+  protected loadPosts(): void {
     this.isLoading = true;
     this.loadError = false;
     this.postService.getPosts(this.limit, this.offset).subscribe({
@@ -62,7 +62,7 @@ export class BlogComponent implements OnInit {
     });
   }
 
-  loadMorePosts(): void {
+  protected loadMorePosts(): void {
     this.isLoadingMorePosts = true;
     this.loadError = false;
     this.offset += this.limit;

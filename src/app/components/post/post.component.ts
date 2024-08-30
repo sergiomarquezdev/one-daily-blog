@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
-import { PostService } from '../../services/post.service';
-import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { Post } from '../../entities/Post';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, OnInit} from '@angular/core';
+import {ActivatedRoute, RouterModule} from '@angular/router';
+import {PostService} from '../../services/post.service';
+import {CommonModule} from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {Post} from '../../entities/Post';
 
 @Component({
   selector: 'app-post',
@@ -23,7 +22,8 @@ export class PostComponent implements OnInit {
   loadError = false;
   urlSlug = '';
 
-  constructor(private route: ActivatedRoute, private postService: PostService) {}
+  constructor(private route: ActivatedRoute, private postService: PostService) {
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {

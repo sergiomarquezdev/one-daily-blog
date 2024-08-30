@@ -1,4 +1,7 @@
-<div class="container mx-auto p-4 pt-8" *ngIf="post">
+<div *ngIf="post" class="container mx-auto p-4 pb-8">
+  <button [routerLink]="['/']" class="mb-4" color="primary" mat-button>
+    <i class="fa-solid fa-arrow-left mr-2"></i> Volver atrás
+  </button>
   <mat-card class="post-container">
     <mat-card-content class="p-6">
       <div class="post-meta mb-4 text-gray-500 flex flex-col md:flex-row justify-between items-center md:items-start">
@@ -15,12 +18,12 @@
   </mat-card>
 </div>
 
-<div *ngIf="isLoading" class="text-center text-gray-500 mt-8">
+<div *ngIf="isLoading" class="text-center text-gray-500 my-8">
   <mat-spinner diameter="50" class="mx-auto"></mat-spinner>
   <p class="mt-4">Cargando post...</p>
 </div>
 
-<div *ngIf="loadError" class="text-center text-red-500 mt-8">
+<div *ngIf="loadError" class="text-center text-red-500 my-8">
   <p>Ocurrió un error al cargar el post. Por favor, inténtelo de nuevo más tarde.</p>
   <button mat-raised-button color="primary" (click)="loadPost()" class="mt-4">Intentar de nuevo</button>
 </div>
