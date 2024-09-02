@@ -72,7 +72,11 @@ export class BlogComponent implements OnInit, AfterViewInit, OnDestroy {
     const documentHeight = document.body.offsetHeight;
 
     if ((scrollPosition >= documentHeight - 50) && !this.allPostsLoaded && !this.isLoadingMorePosts) {
-      this.loadMorePosts();
+      this.isLoadingMorePosts = true;
+      this.loadError = false;
+      setTimeout(() => {
+        this.loadMorePosts();
+      }, 2000)
     }
   }
 
