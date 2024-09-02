@@ -1,28 +1,28 @@
-# One dAIly Blog
+# One dAIly Blog: Un blog diario generado por IA
+
+## Descripción
 
 One dAIly Blog es una aplicación de blog basada en Angular diseñada para la publicación diaria de contenido.
 
-## Tecnologías
+## Tecnologías utilizadas
 
-- Angular 18.2.0
-- Angular Material 18.2.0
-- TailwindCSS 3.4.10
-- TypeScript 5.5.2
+* Angular
+* Angular Material
+* TailwindCSS
+* TypeScript
 
 ## Características
 
-- Publicación diaria de contenido generado por IA
-- Interfaz de usuario moderna y responsiva
-- Integración con redes sociales
+* Publicación diaria de contenido generado por IA
+* Interfaz de usuario moderna y responsiva
 
 ## Prerrequisitos
 
-- Node.js (v18.18.0 o posterior recomendado)
-- Bun (para ejecutar scripts)
+* Node.js (v18.18.0 o posterior recomendado)
 
 ## Instalación
 
-1. Clona el repositorio:
+1. Clona el repositorio y cambia al directorio del proyecto:
 
    ```bash
    git clone https://github.com/sergiomarquezdev/one-daily-blog.git
@@ -72,9 +72,9 @@ ng test
 
 - **src/**: Contiene el código fuente de la aplicación.
   - **app/**: Contiene los componentes, servicios y módulos de la aplicación.
-  - **assets/**: Contiene los recursos estáticos como imágenes y estilos.
   - **environments/**: Contiene los archivos de configuración de entornos.
 - **public/**: Contiene los archivos públicos que se servirán directamente.
+  - **assets/**: Contiene los recursos estáticos como imágenes y estilos.
 - **dist/**: Contiene los artefactos de construcción.
 
 ## Configuración
