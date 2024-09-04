@@ -1,98 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
+  <head>
+    <!-- Google Analytics (gestionado a través de Google Tag Manager) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5BVFETJLZ6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
 
-<head>
-  <meta charset="utf-8">
-  <title>One dAIly Blog - Insights Diarios sobre Tecnología y Programación</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-    content="One dAIly Blog - Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnología y la programación.">
-  <meta name="keywords"
-    content="AI, Blog, Tecnología, Insights Diarios, Inteligencia Artificial, Programación, Desarrollo, Software">
-  <meta name="author" content="Sergio Márquez">
-  <meta name="theme-color" content="#3f51b5">
-  <meta name="robots" content="index, follow">
-  <meta name="language" content="Spanish">
-  <meta name="geo.region" content="ES">
-  <link rel="canonical" href="https://blog.sergiomarquez.dev/">
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-5BVFETJLZ6");
+    </script>
+    <meta charset="utf-8" />
+    <title>One dAIly Blog - Insights Diarios sobre Tecnología y Programación</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="One dAIly Blog - Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnología y la programación."
+    />
+    <meta
+      name="keywords"
+      content="AI, Blog, Tecnología, Insights Diarios, Inteligencia Artificial, Programación, Desarrollo, Software"
+    />
+    <meta name="author" content="Sergio Márquez" />
+    <meta name="theme-color" content="#3f51b5" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Spanish" />
+    <meta name="geo.region" content="ES" />
+    <link rel="canonical" href="https://blog.sergiomarquez.dev/" />
 
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="One dAIly Blog - Insights Diarios sobre Tecnología y Programación">
-  <meta property="og:description"
-    content="Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnología y la programación.">
-  <meta property="og:image" content="https://blog.sergiomarquez.dev/assets/logo.png">
-  <meta property="og:url" content="https://blog.sergiomarquez.dev">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_ES">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="One dAIly Blog - Insights Diarios sobre Tecnología y Programación" />
+    <meta
+      property="og:description"
+      content="Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnología y la programación."
+    />
+    <meta property="og:image" content="https://blog.sergiomarquez.dev/assets/logo.png" />
+    <meta property="og:url" content="https://blog.sergiomarquez.dev" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
 
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="One dAIly Blog - Insights Diarios sobre Tecnología y Programación">
-  <meta name="twitter:description"
-    content="Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnología y la programación.">
-  <meta name="twitter:image" content="https://blog.sergiomarquez.dev/assets/logo.png">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="One dAIly Blog - Insights Diarios sobre Tecnología y Programación" />
+    <meta
+      name="twitter:description"
+      content="Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnología y la programación."
+    />
+    <meta name="twitter:image" content="https://blog.sergiomarquez.dev/assets/logo.png" />
 
-  <!-- Preload Fonts -->
-  <link rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Mohave:wght@400;500;600;700&display=swap"
-    as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Mohave:wght@400;500;600;700&display=swap">
-  </noscript>
+    <!-- Preload Fonts -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Mohave:wght@400;500;600;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Mohave:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://blog.sergiomarquez.dev/favicon.ico" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="icon" href="https://blog.sergiomarquez.dev/favicon.ico" type="image/x-icon" />
 
-  <!-- Prefetch DNS for faster font loading -->
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Prefetch DNS for faster font loading -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Material Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
-  <!-- Critical CSS (insertar reglas CSS críticas para el primer renderizado) -->
-  <style>
-    body {
-      font-family: "Quicksand", -apple-system, BlinkMacSystemFont, Roboto, Oxygen,
-        Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-      margin: 0;
-      height: 100%;
-    }
+    <!-- Critical CSS (insertar reglas CSS críticas para el primer renderizado) -->
+    <style>
+      body {
+        font-family: "Quicksand", -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+          "Droid Sans", "Helvetica Neue", sans-serif;
+        margin: 0;
+        height: 100%;
+      }
 
-    h1 {
-      font-family: "Mohave", sans-serif;
-    }
+      h1 {
+        font-family: "Mohave", sans-serif;
+      }
 
-    h2 {
-      font-family: "Mohave", sans-serif;
-    }
+      h2 {
+        font-family: "Mohave", sans-serif;
+      }
+    </style>
+  </head>
 
-  </style>
-
-</head>
-
-<body>
-  <app-root></app-root>
-
-  <!-- Google Analytics (gestionado a través de Google Tag Manager) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5BVFETJLZ6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-5BVFETJLZ6');
-
-  </script>
-</body>
-
+  <body>
+    <app-root></app-root>
+  </body>
 </html>
