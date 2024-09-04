@@ -18,6 +18,12 @@ export class FooterComponent implements OnInit {
   currentYear = new Date().getFullYear();
   socialLinks: SocialLink[] = [
     {
+      name: 'Portfolio Web',
+      url: 'https:/sergiomarquez.dev',
+      icon: 'fa-solid fa-globe',
+      ariaLabel: 'Portfolio web de Sergio Márquez',
+    },
+    {
       name: 'Email',
       url: 'mailto:sergiomarquezdev@gmail.com',
       icon: 'fa-regular fa-envelope',
