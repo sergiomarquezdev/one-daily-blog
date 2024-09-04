@@ -19,7 +19,7 @@ export class FooterComponent implements OnInit {
   socialLinks: SocialLink[] = [
     {
       name: 'Portfolio Web',
-      url: 'https:/sergiomarquez.dev',
+      url: 'https://sergiomarquez.dev',
       icon: 'fa-solid fa-globe',
       ariaLabel: 'Portfolio web de Sergio Márquez',
     },
