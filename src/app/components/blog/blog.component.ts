@@ -53,14 +53,14 @@ export class BlogComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   protected loadInfo(): void {
-    this.titleService.setTitle('One dAIly Blog - Insights Diarios sobre Tecnolog韆 y Programaci髇');
-    this.metaService.updateTag({ name: 'description', content: 'One dAIly Blog - Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnolog韆 y la programaci髇.' });
-    this.metaService.updateTag({ property: 'og:title', content: 'One dAIly Blog - Insights Diarios sobre Tecnolog韆 y Programaci髇' });
-    this.metaService.updateTag({ property: 'og:description', content: 'Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnolog韆 y la programaci髇.' });
+    this.titleService.setTitle('One dAIly Blog - Insights Diarios sobre Tecnolog铆a y Programaci贸n');
+    this.metaService.updateTag({ name: 'description', content: 'One dAIly Blog - Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnolog铆a y la programaci贸n.' });
+    this.metaService.updateTag({ property: 'og:title', content: 'One dAIly Blog - Insights Diarios sobre Tecnolog铆a y Programaci贸n' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnolog铆a y la programaci贸n.' });
     this.metaService.updateTag({ property: 'og:url', content: 'https://blog.sergiomarquez.dev' });
     this.metaService.updateTag({ property: 'og:type', content: 'website' });
-    this.metaService.updateTag({ name: 'twitter:title', content: 'One dAIly Blog - Insights Diarios sobre Tecnolog韆 y Programaci髇' });
-    this.metaService.updateTag({ name: 'twitter:description', content: 'Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnolog韆 y la programaci髇.' });
+    this.metaService.updateTag({ name: 'twitter:title', content: 'One dAIly Blog - Insights Diarios sobre Tecnolog铆a y Programaci贸n' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnolog铆a y la programaci贸n.' });
     this.metaService.updateTag({ property: 'article:published_time', content: '' });
     this.metaService.updateTag({ property: 'article:author', content: '' });
     this.metaService.updateTag({ rel: 'canonical', href: 'https://blog.sergiomarquez.dev/' });

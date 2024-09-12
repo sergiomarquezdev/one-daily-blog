@@ -67,13 +67,13 @@ export class PostComponent implements OnInit {
     this.isLoading = false;
 
     this.titleService.setTitle(`${data.title} | One dAIly Blog`);
-    this.metaService.updateTag({ name: 'description', content: data.contentResume || 'Insights Diarios sobre Tecnología y Programación' });
+    this.metaService.updateTag({ name: 'description', content: data.contentResume || 'Insights Diarios sobre TecnologÃ­a y ProgramaciÃ³n' });
     this.metaService.updateTag({ property: 'og:title', content: `${data.title} | One dAIly Blog` });
-    this.metaService.updateTag({ property: 'og:description', content: data.contentResume || 'Insights Diarios sobre Tecnología y Programación' });
+    this.metaService.updateTag({ property: 'og:description', content: data.contentResume || 'Insights Diarios sobre TecnologÃ­a y ProgramaciÃ³n' });
     this.metaService.updateTag({ property: 'og:url', content: `https://blog.sergiomarquez.dev/post/${data.urlSlug}` });
     this.metaService.updateTag({ property: 'og:type', content: 'article' });
     this.metaService.updateTag({ name: 'twitter:title', content: `${data.title} | One dAIly Blog` });
-    this.metaService.updateTag({ name: 'twitter:description', content: data.contentResume || 'Insights Diarios sobre Tecnología y Programación' });
+    this.metaService.updateTag({ name: 'twitter:description', content: data.contentResume || 'Insights Diarios sobre TecnologÃ­a y ProgramaciÃ³n' });
     this.metaService.updateTag({ property: 'article:published_time', content: data.createdAt.toISOString() });
     this.metaService.updateTag({ property: 'article:author', content: data.author });
     this.metaService.updateTag({ rel: 'canonical', href: `https://blog.sergiomarquez.dev/post/${data.urlSlug}` });

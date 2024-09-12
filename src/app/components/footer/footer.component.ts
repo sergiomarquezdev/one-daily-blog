@@ -21,7 +21,7 @@ export class FooterComponent implements OnInit {
       name: 'Portfolio Web',
       url: 'https://sergiomarquez.dev',
       icon: 'fa-solid fa-globe',
-      ariaLabel: 'Portfolio web de Sergio Márquez',
+      ariaLabel: 'Portfolio web de Sergio MÃ¡rquez',
     },
     {
       name: 'Email',
