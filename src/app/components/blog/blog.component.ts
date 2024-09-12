@@ -12,6 +12,8 @@ import {Post} from '../../entities/Post';
 import localeEs from '@angular/common/locales/es';
 import localeEsExtra from '@angular/common/locales/extra/es';
 
+import {Title, Meta} from '@angular/platform-browser';
+
 registerLocaleData(localeEs, 'es-ES', localeEsExtra);
 
 @Component({
@@ -31,10 +33,13 @@ export class BlogComponent implements OnInit, AfterViewInit, OnDestroy {
   limit = 12;
   offset = 0;
 
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService,
+              private titleService: Title,
+              private metaService: Meta) {
   }
 
   ngOnInit(): void {
+    this.loadInfo();
     this.loadPosts();
     this.getTotalPosts();
   }
@@ -45,6 +50,20 @@ export class BlogComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     window.removeEventListener('scroll', this.loadMorePostsOnScroll.bind(this));
+  }
+
+  protected loadInfo(): void {
+    this.titleService.setTitle('One dAIly Blog - Insights Diarios sobre Tecnología y Programación');
+    this.metaService.updateTag({ name: 'description', content: 'One dAIly Blog - Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnología y la programación.' });
+    this.metaService.updateTag({ property: 'og:title', content: 'One dAIly Blog - Insights Diarios sobre Tecnología y Programación' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnología y la programación.' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://blog.sergiomarquez.dev' });
+    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ name: 'twitter:title', content: 'One dAIly Blog - Insights Diarios sobre Tecnología y Programación' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Un post diario generado por inteligencia artificial con insights y novedades del mundo de la tecnología y la programación.' });
+    this.metaService.updateTag({ property: 'article:published_time', content: '' });
+    this.metaService.updateTag({ property: 'article:author', content: '' });
+    this.metaService.updateTag({ rel: 'canonical', href: 'https://blog.sergiomarquez.dev/' });
   }
 
   protected loadPosts(): void {
