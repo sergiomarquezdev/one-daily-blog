@@ -7,6 +7,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {Post} from '../../entities/Post';
+import {Title, Meta} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post',
@@ -24,8 +25,11 @@ export class PostComponent implements OnInit {
   loadError = false;
   urlSlug = '';
 
-  constructor(private route: ActivatedRoute, private postService: PostService) {
-  }
+  constructor(private route: ActivatedRoute,
+              private postService: PostService,
+              private titleService: Title,
+              private metaService: Meta
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -61,6 +65,12 @@ export class PostComponent implements OnInit {
   private handlePostLoad(data: Post): void {
     this.post = data;
     this.isLoading = false;
+
+    this.titleService.setTitle(`${data.title} | One dAIly Blog`);
+    this.metaService.updateTag({ name: 'description', content: data.contentResume || 'Post sobre tecnología y programación' });
+    this.metaService.updateTag({ property: 'og:title', content: `${data.title} | One dAIly Blog` });
+    this.metaService.updateTag({ property: 'og:description', content: data.contentResume || 'Post sobre tecnología y programación' });
+    this.metaService.updateTag({ property: 'og:url', content: `https://blog.sergiomarquez.dev/post/${data.urlSlug}` });
   }
 
   private handleError(error: any): void {
