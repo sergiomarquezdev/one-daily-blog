@@ -15,6 +15,7 @@ import { Title, Meta } from '@angular/platform-browser';
   imports: [CommonModule, RouterModule, MatButtonModule, MatCardModule, MatChipsModule, MatProgressSpinnerModule],
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PostComponent implements OnInit {
   post: Post | null = null;
