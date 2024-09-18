@@ -46,15 +46,10 @@
   @apply mt-2 py-2 bg-gray-100 border-t border-gray-200;
 }
 
-.mat-card-footer span {
-  @apply text-gray-700;
-}
-
 .btn-leermas {
   @apply text-blue-600 hover:text-blue-800 transition-all duration-300;
 }
 
 .fa-arrow-right {
-  @apply text-lg;
-  @apply ml-1;
+  @apply text-lg ml-1;
 }

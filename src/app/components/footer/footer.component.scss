@@ -1,8 +1,9 @@
+/* footer.component.scss */
 .footer-container {
   @apply bg-gradient-to-r from-gray-800 to-gray-900 text-gray-300 flex justify-center px-8;
   display: flex;
   justify-content: center;
-  padding: 0 2rem; // Añade padding a los lados
+  padding: 0 2rem;
 }
 
 .footer-content {
@@ -17,8 +18,21 @@
 .footer-link {
   @apply flex items-center gap-2 hover:text-blue-400 transition-colors duration-300;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.footer-link i {
+  @apply w-6 text-xl;
+}
+
+.footer-link span {
+  @apply font-semibold;
 }
 
 .grid-center {
   @apply flex justify-center;
+}
+
+.grid-start {
+  @apply flex justify-start;
 }

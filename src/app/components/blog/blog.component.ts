@@ -1,18 +1,17 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import {CommonModule, registerLocaleData} from '@angular/common';
-import {RouterModule} from '@angular/router';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import {PostService} from '../../services/post.service';
-import {Post} from '../../entities/Post';
+import { PostService } from '../../services/post.service';
+import { Post } from '../../entities/Post';
 
 import localeEs from '@angular/common/locales/es';
 import localeEsExtra from '@angular/common/locales/extra/es';
-
-import {Title, Meta} from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 
 registerLocaleData(localeEs, 'es-ES', localeEsExtra);
 
@@ -33,10 +32,7 @@ export class BlogComponent implements OnInit, AfterViewInit, OnDestroy {
   limit = 12;
   offset = 0;
 
-  constructor(private postService: PostService,
-              private titleService: Title,
-              private metaService: Meta) {
-  }
+  constructor(private postService: PostService, private titleService: Title, private metaService: Meta) {}
 
   ngOnInit(): void {
     this.loadInfo();

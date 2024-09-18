@@ -1,16 +1,17 @@
 <div *ngIf="post" class="container mx-auto p-4 pb-8">
   <div class="flex justify-between mb-4">
     <button *ngIf="previousPost" [attr.aria-label]="'Anterior: ' + previousPost.title"
-            [routerLink]="['/post', previousPost.urlSlug]" [title]="previousPost.title" class="mb-2" color="primary"
-            mat-button>
-      <i class="fa-solid fa-chevron-left mr-2"></i> Anterior
+            [routerLink]="['/post', previousPost.urlSlug]" [title]="previousPost.title" class="mb-2"
+            color="primary" mat-button>
+      <i class="fa-solid fa-chevron-left mr-2" aria-hidden="true"></i> Anterior
     </button>
     <div *ngIf="!previousPost" class="mb-2"></div>
     <button *ngIf="nextPost" [attr.aria-label]="'Siguiente: ' + nextPost.title"
             [routerLink]="['/post', nextPost.urlSlug]" [title]="nextPost.title" class="mb-2" color="primary" mat-button>
-      Siguiente <i class="fa-solid fa-chevron-right ml-2"></i>
+      Siguiente <i class="fa-solid fa-chevron-right ml-2" aria-hidden="true"></i>
     </button>
   </div>
+
   <mat-card class="post-container">
     <mat-card-content class="p-6">
       <div class="post-meta mb-4 text-gray-500 flex flex-col md:flex-row justify-between items-center md:items-start">
@@ -27,12 +28,12 @@
   </mat-card>
 </div>
 
-<div *ngIf="isLoading" class="text-center text-gray-500 my-8">
+<div *ngIf="isLoading" class="text-center text-gray-500 my-8" aria-live="polite">
   <mat-spinner diameter="50" class="mx-auto"></mat-spinner>
   <p class="mt-4">Cargando post...</p>
 </div>
 
-<div *ngIf="loadError" class="text-center text-red-500 my-8">
+<div *ngIf="loadError" class="text-center text-red-500 my-8" aria-live="assertive">
   <p>Ocurrió un error al cargar el post. Por favor, inténtelo de nuevo más tarde.</p>
   <button mat-raised-button color="primary" (click)="loadPost()" class="mt-4">Intentar de nuevo</button>
 </div>

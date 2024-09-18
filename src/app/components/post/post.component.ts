@@ -1,13 +1,13 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA, OnInit} from '@angular/core';
-import {ActivatedRoute, RouterModule} from '@angular/router';
-import {PostService} from '../../services/post.service';
-import {CommonModule} from '@angular/common';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {Post} from '../../entities/Post';
-import {Title, Meta} from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { PostService } from '../../services/post.service';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Post } from '../../entities/Post';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post',
@@ -15,7 +15,6 @@ import {Title, Meta} from '@angular/platform-browser';
   imports: [CommonModule, RouterModule, MatButtonModule, MatCardModule, MatChipsModule, MatProgressSpinnerModule],
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PostComponent implements OnInit {
   post: Post | null = null;
@@ -28,8 +27,7 @@ export class PostComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private postService: PostService,
               private titleService: Title,
-              private metaService: Meta
-  ) {}
+              private metaService: Meta) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -54,11 +52,11 @@ export class PostComponent implements OnInit {
     this.previousPost = null;
     this.nextPost = null;
     this.postService.fetchPreviousPost(postId).subscribe({
-      next: (data: Post) => (this.previousPost = data)
+      next: (data: Post) => this.previousPost = data
     });
 
     this.postService.fetchNextPost(postId).subscribe({
-      next: (data: Post) => (this.nextPost = data)
+      next: (data: Post) => this.nextPost = data
     });
   }
 
@@ -66,17 +64,25 @@ export class PostComponent implements OnInit {
     this.post = data;
     this.isLoading = false;
 
-    this.titleService.setTitle(`${data.title} | One dAIly Blog`);
-    this.metaService.updateTag({ name: 'description', content: data.contentResume || 'Insights Diarios sobre Tecnología y Programación' });
-    this.metaService.updateTag({ property: 'og:title', content: `${data.title} | One dAIly Blog` });
-    this.metaService.updateTag({ property: 'og:description', content: data.contentResume || 'Insights Diarios sobre Tecnología y Programación' });
-    this.metaService.updateTag({ property: 'og:url', content: `https://blog.sergiomarquez.dev/post/${data.urlSlug}` });
+    // Actualizar título y meta tags
+    this.updateMetaTags(data);
+  }
+
+  private updateMetaTags(post: Post): void {
+    const description = post.contentResume || 'Insights Diarios sobre Tecnología y Programación';
+    const url = `https://blog.sergiomarquez.dev/post/${post.urlSlug}`;
+
+    this.titleService.setTitle(`${post.title} | One dAIly Blog`);
+    this.metaService.updateTag({ name: 'description', content: description });
+    this.metaService.updateTag({ property: 'og:title', content: `${post.title} | One dAIly Blog` });
+    this.metaService.updateTag({ property: 'og:description', content: description });
+    this.metaService.updateTag({ property: 'og:url', content: url });
     this.metaService.updateTag({ property: 'og:type', content: 'article' });
-    this.metaService.updateTag({ name: 'twitter:title', content: `${data.title} | One dAIly Blog` });
-    this.metaService.updateTag({ name: 'twitter:description', content: data.contentResume || 'Insights Diarios sobre Tecnología y Programación' });
-    this.metaService.updateTag({ property: 'article:published_time', content: data.createdAt.toISOString() });
-    this.metaService.updateTag({ property: 'article:author', content: data.author });
-    this.metaService.updateTag({ rel: 'canonical', href: `https://blog.sergiomarquez.dev/post/${data.urlSlug}` });
+    this.metaService.updateTag({ name: 'twitter:title', content: `${post.title} | One dAIly Blog` });
+    this.metaService.updateTag({ name: 'twitter:description', content: description });
+    this.metaService.updateTag({ property: 'article:published_time', content: post.createdAt.toISOString() });
+    this.metaService.updateTag({ property: 'article:author', content: post.author });
+    this.metaService.updateTag({ rel: 'canonical', href: url });
   }
 
   private handleError(error: any): void {
