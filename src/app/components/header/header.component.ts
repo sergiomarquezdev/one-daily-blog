@@ -4,11 +4,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {RouterLink} from '@angular/router';
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule],
+  imports: [RouterLink, MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule, NgOptimizedImage],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
