@@ -2,25 +2,29 @@
 
 ## Descripción
 
-One dAIly Blog es una aplicación de blog basada en Angular diseñada para la publicación diaria de contenido.
+One dAIly Blog es una aplicación de blog desarrollada con Angular, diseñada para la publicación diaria de contenido generado por inteligencia artificial. La aplicación proporciona una interfaz moderna y responsiva, permitiendo a los usuarios acceder a insights diarios sobre tecnología y programación.
 
-## Tecnologías utilizadas
+## Tecnologías Utilizadas
 
-* Angular
-* Angular Material
-* TailwindCSS
-* TypeScript
+- **Angular**: Framework para construir aplicaciones web dinámicas.
+- **Angular Material**: Biblioteca de componentes UI que sigue las pautas de Material Design.
+- **TailwindCSS**: Framework CSS para un diseño personalizado y responsivo.
+- **TypeScript**: Lenguaje de programación que mejora JavaScript con tipado estático.
 
-## Características
+## Estructura del Proyecto
 
-* Publicación diaria de contenido generado por IA
-* Interfaz de usuario moderna y responsiva
+La estructura del proyecto está organizada de la siguiente manera:
 
-## Prerrequisitos
-
-* Node.js (v18.18.0 o posterior recomendado)
+- **src/**: Contiene el código fuente de la aplicación.
+  - **app/**: Contiene los componentes, servicios y módulos de la aplicación.
+  - **environments/**: Contiene los archivos de configuración de entornos.
+- **public/**: Contiene los archivos públicos que se servirán directamente.
+  - **assets/**: Contiene los recursos estáticos como imágenes y estilos.
+- **dist/**: Contiene los artefactos de construcción.
 
 ## Instalación
+
+Para instalar y ejecutar el proyecto, sigue estos pasos:
 
 1. Clona el repositorio y cambia al directorio del proyecto:
 
@@ -37,7 +41,7 @@ One dAIly Blog es una aplicación de blog basada en Angular diseñada para la pu
 
 ## Desarrollo
 
-Para iniciar el servidor de desarrollo:
+Para iniciar el servidor de desarrollo, ejecuta:
 
 ```bash
 bun run start
@@ -47,7 +51,7 @@ Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente
 
 ## Construcción
 
-Para construir el proyecto:
+Para construir el proyecto, utiliza el siguiente comando:
 
 ```bash
 bun run build
@@ -65,17 +69,8 @@ ng test
 
 ## Comandos Adicionales
 
-- `ng generate component component-name`: Genera un nuevo componente
-- `ng generate directive|pipe|service|class|guard|interface|enum|module`: Genera otros artefactos de Angular
-
-## Estructura del Proyecto
-
-- **src/**: Contiene el código fuente de la aplicación.
-  - **app/**: Contiene los componentes, servicios y módulos de la aplicación.
-  - **environments/**: Contiene los archivos de configuración de entornos.
-- **public/**: Contiene los archivos públicos que se servirán directamente.
-  - **assets/**: Contiene los recursos estáticos como imágenes y estilos.
-- **dist/**: Contiene los artefactos de construcción.
+- `ng generate component component-name`: Genera un nuevo componente.
+- `ng generate directive|pipe|service|class|guard|interface|enum|module`: Genera otros artefactos de Angular.
 
 ## Configuración
 
